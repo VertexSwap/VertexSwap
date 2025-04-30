@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Language set to English -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VertexSwap - Crypto Exchange</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>VertexSwap</h1>
+            <div id="loading-indicator" class="loading-indicator hidden">
+                <div class="spinner small"></div> Loading rates...
+            </div>
+        </header>
+
+        <main>
+            <!-- Exchange Screen -->
+            <section id="exchange-section" class="active-section">
+                <form id="exchange-form">
+                    <div class="form-group send-block">
+                        <label for="send-amount">You Send</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="send-amount" placeholder="0.00" step="any" min="0">
+                            <div class="coin-selector" id="send-coin-selector" data-target-input="send-coin">
+                                <img src="https://via.placeholder.com/24/FFA500/000000?text=B" alt="BTC" id="send-coin-icon">
+                                <span id="send-coin-ticker">BTC</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <input type="hidden" id="send-coin" value="BTC">
+                            <input type="hidden" id="send-coin-name" value="Bitcoin">
+                        </div>
+                        <small class="usd-value" id="send-usd-value">≈ $0.00 USD</small>
+                         <small class="balance-info">Minimum amount ~ $5.00</small>
+                    </div>
+
+                    <div class="swap-button-container">
+                        <button type="button" id="swap-button" title="Swap currencies"><i class="fas fa-exchange-alt"></i></button>
+                    </div>
+
+                    <div class="form-group receive-block">
+                        <label for="receive-amount">You Receive ~</label>
+                         <div class="input-wrapper">
+                            <input type="text" id="receive-amount" placeholder="0.00" readonly>
+                            <div class="coin-selector" id="receive-coin-selector" data-target-input="receive-coin">
+                                <img src="https://via.placeholder.com/24/719FEE/FFFFFF?text=E" alt="ETH" id="receive-coin-icon">
+                                <span id="receive-coin-ticker">ETH</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                             <input type="hidden" id="receive-coin" value="ETH">
+                             <input type="hidden" id="receive-coin-name" value="Ethereum">
+                        </div>
+                        <small class="usd-value" id="receive-usd-value">≈ $0.00 USD</small>
+                         <small class="rate-info" id="rate-info">Loading rate...</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-address" id="recipient-address-label">Recipient Wallet Address (Ethereum)</label>
+                        <input type="text" id="recipient-address" placeholder="Enter your wallet address">
+                        <p class="important-warning" id="recipient-address-warning">
+                            <i class="fas fa-exclamation-triangle"></i> Attention! Carefully check the recipient address before starting the exchange. Errors are irreversible.
+                        </p>
+                    </div>
+
+                     <div class="fee-info">
+                        <span>Network Fee: ~ <span id="network-fee-value">???</span> <span id="fee-send-ticker">BTC</span></span>
+                        <span>Service Fee: <span id="service-fee-percent">0.5</span>%</span>
+                    </div>
+
+                    <button type="submit" class="cta-button">Start Exchange</button>
+                </form>
+            </section>
+
+            <!-- Exchange Status Screen -->
+            <section id="status-section" class="hidden-section">
+                 <h2>Exchange Status</h2>
+                 <div id="status-steps">
+                      <!-- Step 1: Awaiting Deposit -->
+                     <div class="status-step" id="step-deposit">
+                         <p><strong>Step 1/3: Send Deposit</strong></p>
+                         <p>Please send EXACTLY <strong id="deposit-amount">...</strong> to the address below:</p>
+                         <div class="deposit-address-block">
+                             <code id="deposit-address">...address will be here...</code>
+                             <button id="copy-address-btn" title="Copy address"><i class="far fa-copy"></i></button>
+                         </div>
+                         <p class="network-info" id="deposit-network-info"></p>
+                         <p class="memo-info" id="deposit-memo-info"></p>
+                          <p class="warning">Send only <strong id="deposit-coin-name">...</strong>. Sending other coins or using the wrong network will result in loss of funds.</p>
+                          <div class="action-buttons">
+                             <button id="back-to-form-btn" class="secondary-button"><i class="fas fa-arrow-left"></i> Back to Form</button>
+                          </div>
+                          <p class="reassurance-text">
+                             <i class="fas fa-info-circle"></i> Already sent funds? Don't worry! If you return to the form, your exchange will still be processed once we receive your deposit.
+                          </p>
+                     </div>
+
+                     <!-- Step 2: Processing (Updated Text Structure) -->
+                     <div class="status-step hidden-step" id="step-processing">
+                        <div class="spinner"></div>
+                        <p><strong>Step 2/3: Processing Your Exchange</strong></p>
+                        <p id="processing-status-text">
+                            We are now tracking your <strong id="processing-coin-send">...</strong> deposit on the network.
+                            Once it receives sufficient confirmations, the exchange to <strong id="processing-coin-receive">...</strong> will be processed automatically,
+                            and the funds will be sent to the wallet address you provided.
+                        </p>
+                         <div class="action-buttons">
+                            <button id="simulate-exchange-complete-btn" class="simulate-button">Simulate Exchange Completion</button>
+                         </div>
+                    </div>
+
+                     <!-- Step 3: Complete -->
+                     <div class="status-step hidden-step" id="step-complete">
+                         <i class="fas fa-check-circle fa-3x success-icon"></i>
+                         <p><strong>Step 3/3: Exchange Successfully Completed!</strong></p>
+                         <p><strong id="final-receive-amount">...</strong> sent to your address <strong id="final-recipient-address-short">...</strong>.</p>
+                         <p>Your Transaction ID: <span id="exchange-id">...</span></p>
+                         <a href="#" id="explorer-link" target="_blank" class="explorer-link">View on Explorer (link will be here)</a>
+                          <div class="action-buttons">
+                             <button id="new-exchange-btn" class="cta-button">Create New Exchange</button>
+                          </div>
+                     </div>
+                 </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2023 VertexSwap. All rights reserved.</p>
+            <p><small>Rates provided by Binance API and may vary slightly. Exchange available for amounts from $5 USD.</small></p>
+        </footer>
+    </div>
+
+    <!-- Coin Selection Modal -->
+    <div id="coin-modal" class="modal">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h3>Select Coin</h3>
+                 <button id="close-modal-btn">×</button>
+             </div>
+             <input type="text" id="search-coin-input" placeholder="Search by name or ticker...">
+             <ul id="coin-list">
+                 <!-- Coins will be added via JS -->
+             </ul>
+         </div>
+    </div>
+
+     <!-- Support Chat Button -->
+    <button id="support-chat-button" class="support-chat-button" title="Support Chat">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Support Chat Window (hidden by default) -->
+    <div id="support-chat-window" class="support-chat-window">
+        <div class="chat-header">
+            <h4>Support Chat</h4>
+            <button id="close-chat-btn" class="close-chat-btn">×</button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <!-- Messages will be added here -->
+            <p class="chat-placeholder">How can we help you today?</p>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button id="send-chat-message" class="send-chat-btn">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
