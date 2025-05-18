@@ -3,107 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VertexSwap - Crypto Exchange</title>
+
+    <!-- SEO: Key Title - should be unique and contain main keywords -->
+    <title>7Swap: Secure Crypto Exchange | Buy/Sell Bitcoin, Ethereum & More</title>
+
+    <!-- SEO: Description - concise page summary (150-160 characters), enticing clicks -->
+    <meta name="description" content="7Swap - Your trusted and fast cryptocurrency exchange service. Swap Bitcoin (BTC), Ethereum (ETH), and other digital assets at competitive rates with low fees. Start your exchange now!">
+
+    <!-- SEO: Keywords (less critical now, but can't hurt) -->
+    <meta name="keywords" content="cryptocurrency exchange, crypto exchange, 7Swap, buy bitcoin, sell bitcoin, buy ethereum, sell ethereum, btc exchange, eth exchange, crypto rates, crypto wallet, secure exchange, instant crypto swap">
+
+    <!-- SEO: Canonical URL - tells search engines the preferred version of the page (IMPORTANT: replace with your actual domain) -->
+    <link rel="canonical" href="https://www.yourdomain.com/" /> <!-- REPLACE THIS WITH YOUR ACTUAL URL -->
+
+    <!-- SEO: Open Graph for social media (Facebook, etc.) - improves link previews -->
+    <meta property="og:title" content="7Swap: Secure Crypto Exchange | Buy/Sell Bitcoin, Ethereum">
+    <meta property="og:description" content="7Swap - Your fast and secure platform for cryptocurrency exchange. Swap Bitcoin (BTC), Ethereum (ETH), and other digital assets at great rates.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourdomain.com/"> <!-- REPLACE THIS WITH YOUR ACTUAL URL -->
+    <meta property="og:image" content="https://www.yourdomain.com/images/7swap-og-image.jpg"> <!-- REPLACE WITH URL TO YOUR PREVIEW IMAGE -->
+    <meta property="og:site_name" content="7Swap">
+
+    <!-- SEO: Twitter Cards - for better display on Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="7Swap: Secure Crypto Exchange | Buy/Sell Bitcoin, Ethereum">
+    <meta name="twitter:description" content="7Swap - Your fast and secure platform for cryptocurrency exchange. Swap Bitcoin (BTC), Ethereum (ETH), and other digital assets at great rates.">
+    <meta name="twitter:image" content="https://www.yourdomain.com/images/7swap-twitter-image.jpg"> <!-- REPLACE WITH URL TO YOUR TWITTER IMAGE -->
+    <!-- <meta name="twitter:site" content="@YourTwitterHandle"> --> <!-- If you have a Twitter account -->
+
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="btc_img.svg" type="image/svg+xml">
+    <!-- SEO: Branded Favicon - better to name it after the brand -->
+    <link rel="icon" href="7swap-favicon.svg" type="image/svg+xml"> <!-- REPLACE btc_img.svg WITH YOUR FAVICON -->
+
+    <!-- SEO: Schema.org markup for Organization (helps Google understand what your site is about) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "7Swap",
+      "url": "https://www.yourdomain.com/", <!-- REPLACE THIS WITH YOUR ACTUAL URL -->
+      "logo": "https://www.yourdomain.com/images/7swap-logo.png", <!-- REPLACE WITH URL TO YOUR LOGO -->
+      "description": "7Swap is a secure and fast crypto exchange for buying and selling Bitcoin, Ethereum, and other cryptocurrencies.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@yourdomain.com", <!-- REPLACE WITH YOUR SUPPORT EMAIL -->
+        "url": "https://www.yourdomain.com/support" <!-- REPLACE WITH URL TO YOUR SUPPORT PAGE (IF ANY) -->
+      },
+      "sameAs": [ <!-- REPLACE WITH YOUR SOCIAL MEDIA PROFILES (IF ANY) -->
+        "https://twitter.com/your7swap",
+        "https://facebook.com/your7swap"
+      ]
+    }
+    </script>
+    <!-- SEO: Schema.org markup for Service (describes the exchange service) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "serviceType": "Cryptocurrency Exchange",
+      "name": "Cryptocurrency Exchange on 7Swap",
+      "description": "Exchange Bitcoin, Ethereum, and other cryptocurrencies quickly and securely on the 7Swap platform with competitive rates and low fees.",
+      "provider": {
+        "@type": "Organization",
+        "name": "7Swap"
+      },
+      "areaServed": "Worldwide", /* Or specify regions if there are restrictions */
+      "url": "https://www.yourdomain.com/" <!-- REPLACE THIS WITH YOUR ACTUAL URL -->
+    }
+    </script>
+
 </head>
 <body>
     <div class="app-container">
         <header>
-            <h1>VertexSwap</h1>
+            <!-- SEO: H1 - main page heading, should contain keywords and be unique per page -->
+            <h1>7Swap: Exchange Cryptocurrencies Fast & Securely</h1>
             <div id="loading-indicator" class="loading-indicator hidden">
-                <div class="spinner small"></div> Loading rates...
+                <div class="spinner small"></div> Loading latest crypto rates...
             </div>
         </header>
 
         <main>
             <!-- Exchange Screen -->
-            <section id="exchange-section" class="active-section">
+            <section id="exchange-section" class="active-section" aria-labelledby="exchange-heading">
+                <!-- SEO: Visually hidden H2 for content structure, if main H1 is in the header -->
+                <h2 id="exchange-heading" class="visually-hidden">Cryptocurrency Exchange Form</h2>
                 <form id="exchange-form">
                     <div class="form-group send-block">
-                        <label for="send-amount">You Send</label>
+                        <label for="send-amount">You Send (Cryptocurrency)</label>
                         <div class="input-wrapper">
-                            <input type="number" id="send-amount" placeholder="0.00" step="any" min="0">
-                            <div class="coin-selector" id="send-coin-selector" data-target-input="send-coin">
-                                <img src="https://via.placeholder.com/24/FFA500/000000?text=B" alt="BTC" id="send-coin-icon">
+                            <input type="number" id="send-amount" placeholder="0.00" step="any" min="0" aria-label="Amount to send">
+                            <div class="coin-selector" id="send-coin-selector" data-target-input="send-coin" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="coin-modal" title="Select cryptocurrency to send">
+                                <!-- SEO: Alt text for images -->
+                                <img src="https://via.placeholder.com/24/FFA500/000000?text=B" alt="Bitcoin (BTC) icon" id="send-coin-icon">
                                 <span id="send-coin-ticker">BTC</span>
-                                <i class="fas fa-chevron-down"></i>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
                             </div>
                             <input type="hidden" id="send-coin" value="BTC">
                             <input type="hidden" id="send-coin-name" value="Bitcoin">
                         </div>
                         <small class="usd-value" id="send-usd-value">≈ $0.00 USD</small>
-                         <small class="balance-info">Minimum amount ~ $5.00</small>
+                         <small class="balance-info">Minimum exchange amount ~ $5.00 USD</small>
                     </div>
 
                     <div class="swap-button-container">
-                        <button type="button" id="swap-button" title="Swap currencies"><i class="fas fa-exchange-alt"></i></button>
+                        <button type="button" id="swap-button" title="Swap currencies" aria-label="Swap currencies"><i class="fas fa-exchange-alt" aria-hidden="true"></i></button>
                     </div>
 
                     <div class="form-group receive-block">
-                        <label for="receive-amount">You Receive ~</label>
+                        <label for="receive-amount">You Receive (Cryptocurrency) ~</label>
                          <div class="input-wrapper">
-                            <input type="text" id="receive-amount" placeholder="0.00" readonly>
-                            <div class="coin-selector" id="receive-coin-selector" data-target-input="receive-coin">
-                                <img src="https://via.placeholder.com/24/719FEE/FFFFFF?text=E" alt="ETH" id="receive-coin-icon">
+                            <input type="text" id="receive-amount" placeholder="0.00" readonly aria-label="Amount to receive">
+                            <div class="coin-selector" id="receive-coin-selector" data-target-input="receive-coin" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="coin-modal" title="Select cryptocurrency to receive">
+                                <img src="https://via.placeholder.com/24/719FEE/FFFFFF?text=E" alt="Ethereum (ETH) icon" id="receive-coin-icon">
                                 <span id="receive-coin-ticker">ETH</span>
-                                <i class="fas fa-chevron-down"></i>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
                             </div>
                              <input type="hidden" id="receive-coin" value="ETH">
                              <input type="hidden" id="receive-coin-name" value="Ethereum">
                         </div>
                         <small class="usd-value" id="receive-usd-value">≈ $0.00 USD</small>
-                         <small class="rate-info" id="rate-info">Loading rate...</small>
+                         <small class="rate-info" id="rate-info">Loading exchange rate...</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="recipient-address" id="recipient-address-label">Recipient Wallet Address (Ethereum)</label>
-                        <input type="text" id="recipient-address" placeholder="Enter your wallet address">
+                        <label for="recipient-address" id="recipient-address-label">Your <span id="recipient-coin-name-label">Ethereum</span> Wallet Address for Receiving</label>
+                        <input type="text" id="recipient-address" placeholder="Enter your crypto wallet address" aria-describedby="recipient-address-warning">
                         <p class="important-warning" id="recipient-address-warning">
-                            <i class="fas fa-exclamation-triangle"></i> Attention! Carefully check the recipient address before starting the exchange. Errors are irreversible.
+                            <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Attention! Carefully check the recipient wallet address before starting the crypto exchange. Errors are irreversible.
                         </p>
                     </div>
 
                      <div class="fee-info">
                         <span>Network Fee: ~ <span id="network-fee-value">???</span> <span id="fee-send-ticker">BTC</span></span>
-                        <span>Service Fee: <span id="service-fee-percent">0.5</span>%</span>
+                        <span>7Swap Service Fee: <span id="service-fee-percent">0.5</span>%</span>
                     </div>
 
-                    <button type="submit" class="cta-button">Start Exchange</button>
+                    <button type="submit" class="cta-button">Start Crypto Exchange</button>
                 </form>
             </section>
 
             <!-- Exchange Status Screen -->
-            <section id="status-section" class="hidden-section">
-                 <h2>Exchange Status</h2>
+            <section id="status-section" class="hidden-section" aria-live="polite"> <!-- aria-live for dynamic content -->
+                 <h2>Your Crypto Exchange Status</h2>
                  <div id="status-steps">
                       <!-- Step 1: Awaiting Deposit -->
                      <div class="status-step" id="step-deposit">
-                         <p><strong>Step 1/3: Send Deposit</strong></p>
-                         <p>Please send EXACTLY <strong id="deposit-amount">...</strong> to the address below:</p>
+                         <p><strong>Step 1/3: Send Cryptocurrency Deposit</strong></p>
+                         <p>Please send EXACTLY <strong id="deposit-amount">...</strong> <span id="deposit-currency-ticker-step1"></span> to the address below:</p>
                          <div class="deposit-address-block">
-                             <code id="deposit-address">...address will be here...</code>
-                             <button id="copy-address-btn" title="Copy address"><i class="far fa-copy"></i></button>
+                             <code id="deposit-address">...crypto deposit address will be here...</code>
+                             <button id="copy-address-btn" title="Copy crypto wallet address" aria-label="Copy crypto wallet address"><i class="far fa-copy" aria-hidden="true"></i></button>
                          </div>
                          <p class="network-info" id="deposit-network-info"></p>
-                         <p class="memo-info" id="deposit-memo-info"></p>
-                          <p class="warning">Send only <strong id="deposit-coin-name">...</strong>. Sending other coins or using the wrong network will result in loss of funds.</p>
+                         <p class="memo-info" id="deposit-memo-info"></p> <!-- SEO: Add specifics here if a memo/tag is relevant -->
+                          <p class="warning">Send only <strong id="deposit-coin-name">...</strong> (<span id="deposit-currency-ticker-step1-warning"></span>). Sending other coins or using the wrong network will result in loss of funds.</p>
                           <div class="action-buttons">
-                             <button id="back-to-form-btn" class="secondary-button"><i class="fas fa-arrow-left"></i> Back to Form</button>
+                             <button id="back-to-form-btn" class="secondary-button"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Exchange Form</button>
                           </div>
                           <p class="reassurance-text">
-                             <i class="fas fa-info-circle"></i> Already sent funds? Don't worry! If you return to the form, your exchange will still be processed once we receive your deposit.
+                             <i class="fas fa-info-circle" aria-hidden="true"></i> Already sent your crypto? Don't worry! If you return to the form, your exchange will still be processed once we receive your deposit.
                           </p>
                      </div>
 
-                     <!-- Step 2: Processing (Updated Text Structure) -->
+                     <!-- Step 2: Processing -->
                      <div class="status-step hidden-step" id="step-processing">
-                        <div class="spinner"></div>
-                        <p><strong>Step 2/3: Processing Your Exchange</strong></p>
+                        <div class="spinner" role="status" aria-label="Exchange processing"></div>
+                        <p><strong>Step 2/3: Processing Your Crypto Exchange</strong></p>
                         <p id="processing-status-text">
                             We are now tracking your <strong id="processing-coin-send">...</strong> deposit on the network.
                             Once it receives sufficient confirmations, the exchange to <strong id="processing-coin-receive">...</strong> will be processed automatically,
@@ -116,13 +187,14 @@
 
                      <!-- Step 3: Complete -->
                      <div class="status-step hidden-step" id="step-complete">
-                         <i class="fas fa-check-circle fa-3x success-icon"></i>
-                         <p><strong>Step 3/3: Exchange Successfully Completed!</strong></p>
+                         <i class="fas fa-check-circle fa-3x success-icon" aria-hidden="true"></i>
+                         <p><strong>Step 3/3: Crypto Exchange Successfully Completed!</strong></p>
                          <p><strong id="final-receive-amount">...</strong> sent to your address <strong id="final-recipient-address-short">...</strong>.</p>
-                         <p>Your Transaction ID: <span id="exchange-id">...</span></p>
-                         <a href="#" id="explorer-link" target="_blank" class="explorer-link">View on Explorer (link will be here)</a>
+                         <p>Your Exchange Transaction ID: <span id="exchange-id">...</span></p>
+                         <!-- SEO: rel="noopener noreferrer" for security on external links -->
+                         <a href="#" id="explorer-link" target="_blank" rel="noopener noreferrer" class="explorer-link" title="View transaction on block explorer">View on Block Explorer (link will be here)</a>
                           <div class="action-buttons">
-                             <button id="new-exchange-btn" class="cta-button">Create New Exchange</button>
+                             <button id="new-exchange-btn" class="cta-button">Create New Crypto Exchange</button>
                           </div>
                      </div>
                  </div>
@@ -130,48 +202,45 @@
         </main>
 
         <footer>
-            <p>© 2025 VertexSwap. All rights reserved.</p>
-            <p><small>Exchange available for amounts from $5 USD.</small></p>
+            <p>© 2025 7Swap. All rights reserved. Cryptocurrency Exchange Service.</p>
+            <p><small>Crypto exchange available for amounts from $5 USD.</small></p>
         </footer>
     </div>
 
     <!-- Coin Selection Modal -->
-    <div id="coin-modal" class="modal">
+    <div id="coin-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
          <div class="modal-content">
              <div class="modal-header">
-                 <h3>Select Coin</h3>
-                 <button id="close-modal-btn">×</button>
+                 <h3 id="modal-title">Select Cryptocurrency</h3>
+                 <button id="close-modal-btn" aria-label="Close cryptocurrency selection window">×</button>
              </div>
-             <input type="text" id="search-coin-input" placeholder="Search by name or ticker...">
-             <ul id="coin-list">
+             <input type="text" id="search-coin-input" placeholder="Search by cryptocurrency name or ticker..." aria-label="Search cryptocurrency">
+             <ul id="coin-list" role="listbox">
                  <!-- Coins will be added via JS -->
              </ul>
          </div>
     </div>
 
      <!-- Support Chat Button -->
-    <button id="support-chat-button" class="support-chat-button" title="Support Chat">
-        <i class="fas fa-comments"></i>
+    <button id="support-chat-button" class="support-chat-button" title="Open 7Swap Support Chat" aria-label="Open support chat">
+        <i class="fas fa-comments" aria-hidden="true"></i>
     </button>
 
     <!-- Support Chat Window (hidden by default) -->
-    <div id="support-chat-window" class="support-chat-window">
+    <div id="support-chat-window" class="support-chat-window" role="log" aria-live="polite" aria-atomic="false" aria-relevant="additions text">
         <div class="chat-header">
-            <h4>Support Chat</h4>
-            <button id="close-chat-btn" class="close-chat-btn">×</button>
+            <h4>7Swap Support Chat</h4>
+            <button id="close-chat-btn" class="close-chat-btn" aria-label="Close support chat">×</button>
         </div>
         <div id="chat-messages" class="chat-messages">
-            <!-- Messages will be added here -->
-            <p class="chat-placeholder">How can we help you today?</p>
+            <p class="chat-placeholder">How can we help you with your crypto exchange today?</p>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Type your message...">
+            <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Support chat message input field">
             <button id="send-chat-message" class="send-chat-btn">Send</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script> <!-- defer for better performance -->
 </body>
 </html>
-
-<deb
